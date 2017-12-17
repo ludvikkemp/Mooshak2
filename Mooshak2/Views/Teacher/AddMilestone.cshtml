@@ -1,0 +1,58 @@
+﻿@model Mooshak2.Models.ViewModels.AssignmentViewModel
+
+@{
+    ViewBag.Title = "AddMilestone";
+}
+
+@using (Html.BeginForm("AddMilestone", "Teacher", FormMethod.Post))
+{
+    <legend>Add Milestone</legend>
+    
+    <input type="hidden" class="form-control" name="AssignmentID" value="@Model.ID">
+
+    <div class="form-group">
+        <label>
+            Milestone Title
+            <input type="text" class="form-control" name="title">
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Percentage
+            <input type="text" class="form-control" name="percentage">
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Submission limit
+            <select name="SubmissionLimit" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="form-group input-pairs">
+        <label>
+            Input
+            <input type="text" class="form-control" name="MilestoneInput1">
+        </label>
+        <label>
+            Expected Output
+            <input type="text" class="form-control" name="MilestoneOutput1">
+        </label>
+    </div>
+
+
+    <input type="submit" class="btn btn-info" value="Add Milestone">
+}

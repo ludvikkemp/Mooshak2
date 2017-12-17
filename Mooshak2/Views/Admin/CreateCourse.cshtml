@@ -1,0 +1,27 @@
+﻿
+@model List<Mooshak2.Models.ViewModels.CourseViewModel>
+
+@{
+	ViewBag.Title = "CreateCourse";
+}
+
+@using (Html.BeginForm("CreateCourse", "Admin", FormMethod.Post))
+{
+	<fieldset>
+		<legend>Create Course</legend>
+		<div class="form-group">
+			<label>
+				Name:
+				<input type="text" class="form-control" id="txtName" name="Name">
+			</label>
+		</div>
+
+		<button type="submit" class="btn btn-info">Create Course</button>
+	</fieldset>
+}
+
+<br />
+
+
+
+

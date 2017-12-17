@@ -1,0 +1,26 @@
+﻿@model List<Mooshak2.Models.ViewModels.MilestoneViewModel>
+
+<h2>DeleteMilestones</h2>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Milestone</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@Html.DisplayFor(modelItem => item.Title)</td>
+					<td>
+						@Html.ActionLink("Delete", "DeleteMilestone", new { milestoneID = item.ID, assignmentID = item.AssignmentID},
+						new { onclick = "return confirm('Are you sure you wish to delete this milestone?');" })
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

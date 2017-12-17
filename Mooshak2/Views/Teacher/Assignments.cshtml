@@ -1,0 +1,55 @@
+﻿@model List<Mooshak2.Models.ViewModels.AssignmentViewModel>
+
+@{
+	ViewBag.Title = "Assignments";
+}
+
+<h2>All Assignments</h2>
+
+<br />
+<p>
+	@Html.ActionLink("Create Assignment", "CreateAssignments", null, new { @class = "btn btn-info" })
+
+</p>
+<br />
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Course</th>
+				<th>Assignment</th>
+				<th>Milestone</th>
+				<th>Percentage</th>
+				<th>DueDate</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@Html.DisplayFor(modelItem => item.CourseName)</td>
+					<td>@Html.DisplayFor(modelItem => item.Title)</td>
+					<td>
+						@foreach(var item2 in item.MilestonesTitles)
+						{
+							<p>@Html.DisplayFor(modelItem => item2)</p>
+						}
+
+					</td>
+					<td>
+						@foreach (var item3 in item.MilestonesPercentages)
+						{
+							<p>@Html.DisplayFor(modelItem => item3) %</p>
+						}
+					</td>
+					<td>@Html.DisplayFor(modelItem => item.DueDate)</td>
+					<td>
+                        @Html.ActionLink("Add", "AddMilestone", new { assignmentID = item.ID }) |
+						@Html.ActionLink("Delete", "ViewMilestones", new { assignmentID = item.ID })			
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

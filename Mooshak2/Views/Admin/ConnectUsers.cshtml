@@ -1,0 +1,30 @@
+﻿@model List<Mooshak2.Models.UserViewModel>
+
+
+@{
+    ViewBag.Title = "ConnectUsers";
+}
+
+<h2>ConnectUsers</h2>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@Html.DisplayFor(modelItem => item.UserName)</td>
+					<td>
+						@Html.ActionLink("Add to Course", "AddToCourse", new { userName = item.UserName, courseID = ViewBag.CourseID })
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

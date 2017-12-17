@@ -1,0 +1,34 @@
+﻿@model List<Mooshak2.Models.ViewModels.SubmissionViewModel>
+
+@{
+    ViewBag.Title = "Submissions";
+}
+
+<h2>All Submissions</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Milestone</th>
+                <th>Student</th>
+                <th>File</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.MilestoneTitle)</td>
+                    <td>@Html.DisplayFor(modelItem => item.UserName )</td>
+                    
+                    <td>
+                        <a href="~/Content/Submissions/@Html.DisplayFor(modelItem => item.SubmissionFileName)" download>
+                            <img border="0" src="~/Content/Pictures/ExampleOfaFile.png" alt="file" width="15" height="20">
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
